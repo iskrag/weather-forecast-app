@@ -1,4 +1,5 @@
 import requests
+import streamlit as st
 
 API_KEY = 'dde32aae73ddeb210ee8ec4d8ccf2ee8'
 
@@ -8,6 +9,7 @@ def get_data(place, days=None):
     response = requests.get(url)
     data = response.json()
     filtered_data = data['list']
+    st.write('Please enter a valid city name.')
     nr_values = 8*days
     filtered_data = filtered_data[:nr_values]
     return filtered_data
